@@ -1,24 +1,57 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# My Blog
 
-Things you may want to cover:
+> creating a web app with rails where several users can create comments and delete posts
 
-* Ruby version
+## Built With
 
-* System dependencies
+- Ruby
+- Rails
 
-* Configuration
+# Pre-requirements
 
-* Database creation
+- Vscode/Atom
+- Ruby
+- Rails
+- Nodejs
+- Yarn
+- Sqlite3
+- Postgresql
+- Git
 
-* Database initialization
 
-* How to run the test suite
+## Getting Started
 
-* Services (job queues, cache servers, search engines, etc.)
+To get a local copy up and running follow these simple example steps.
 
-* Deployment instructions
+- copy this link `https://github.com/xtrahuman/my-blog.gitt`.
+- get the directory that you want to clone the repository.
+- open the command prompt in this directory.
+- write `git clone https://github.com/xtrahuman/my-blog.git`.
+- go to the repository folder in your command prompt.
+- run `bundle install`.
+- type `rails s` to start up server
 
-* ...
+## Author
+
+👤 **Okpara Tochukwu**
+
+- GitHub: [@xtrahuman](https://github.com/xtrahuman)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/tochukwuokpara)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
