@@ -1,1 +1,24 @@
 <h1>all posts from a user</h1>
+<div>
+    <% @posts_user.each do |post| %>
+      <ul class='posts'>
+        <li class='post'>
+          <%= link_to "/users/#{@user.id}/posts/#{post.id}", :action => 'go' do %>
+            <h3>Post # <%= post.id %></h3>
+          <%end%>
+          <p> Text: <%= post.text %></p>
+          <div class='commentslikes'>
+            Comments: <%= post.comments_counter || 0%>
+            Likes: <%= post.likes_counter || 0 %>
+          </div>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <% post.last_five_comments.each do |comment| %>
+            <p><%=comment.user.name%> : <%= comment.text %></p>
+          <%end%>
+        </li>
+      </ul>
+    <%end%>
+  </div>

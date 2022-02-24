@@ -1,1 +1,38 @@
 <h1>a user info</h1>
+<div class="row my-4">
+  <div class="col-sm-3">
+    <div class="card-photo">
+    <%= image_tag "cover-photo.jpg", alt: "user", class: "user_image", :size =>'80x80' %>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-body place-items-start ">
+        <h5 class="card-title"><%= link_to @user.name, users_path %></h5>
+        <p class="card-text text-right">number of posts<span class="mx-2"><%=@user.posts_counter || 0%></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+    Bio:<p><%= @user.bio %>...</p>
+  </div>
+
+  <ul class='posts'>
+    <% @posts_user.each do |post| %>
+    <div class='post'>
+      <h3>Post # <%= post.id %></h3>
+      <p> Text:<%= post.text %></p>
+      <div>
+        Comments: <%= post.comments_counter || 0 %>
+        Likes: <%= post.likes_counter || 0 %>
+      </div>
+    </div>
+    <% end %>
+  </ul>
+   
+  <div>
+    <%= link_to "See all posts", "#{@user.id}/posts", class: "button" %>
+  </div>
+</div>
