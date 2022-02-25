@@ -24,8 +24,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html do
         if @post.save
+          flash[:success] = 'Post was sucessfully created'
           redirect_to "/users/#{current_user.id}/posts/"
         else
+          flash.now[:error] = 'post was not created'
           render :new
         end
       end

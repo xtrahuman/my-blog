@@ -7,8 +7,10 @@ class CommentsController < ApplicationController
     @comment.post_id = params[:post_id]
 
     if @comment.save
+      flash[:success] = 'your comment was saved successfully'
       redirect_to user_post_path(current_user.id, Post.find(params[:post_id]))
     else
+      flash.now[:error] = 'your comment could not be saved'
       render :new
     end
   end

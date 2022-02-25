@@ -5,6 +5,11 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  validates :Title, presence: true
+  validates :Title, length: { maximum: 250 }
+  validates :likes_counter, numericality: { greater_than_or_equal_to: 0 }
+  validates :comments_counter, numericality: { greater_than_or_equal_to: 0 }
+  
   def last_five_comments
     comments.order(created_at: :desc).limit(5)
   end
