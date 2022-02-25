@@ -5,6 +5,10 @@
         <div class="commentslikes" >
             <h3>Comments: <%= @post.comments_counter || 0 %></h3>
             <h3>Likes: <%= @post.likes_counter || 0 %></h3>
+          <%= form_with url: "/posts/#{@post.id}/likes", scope: :like do |f| %>
+         <%= f.submit 'Like' %>
+    
+          <% end %>
         </div>
     </div>
     <p><%= @post.text %></p>
@@ -13,5 +17,5 @@
 <% @post.comments.each do |comment| %>
    <h2><%= comment.user.name%>: <%= comment.text%></h2>
 <%end%>
-
+<%= render partial: "createcomment", local: { post: @post } %>
 </div>

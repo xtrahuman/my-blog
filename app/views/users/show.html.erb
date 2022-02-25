@@ -31,6 +31,10 @@
     </div>
     <% end %>
   </ul>
+
+<div id='add_new_post'>
+    <%= link_to 'Add new post', "/posts/new"%>
+</div>
    
   <div>
     <%= link_to "See all posts", "#{@user.id}/posts", class: "button" %>
