@@ -13,6 +13,11 @@
           </div>
         </li>
       </ul>
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+    <% end %>
       <ul>
         <li>
           <% post.last_five_comments.each do |comment| %>

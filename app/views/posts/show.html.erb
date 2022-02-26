@@ -19,3 +19,9 @@
 <%end%>
 <%= render partial: "createcomment", local: { post: @post } %>
 </div>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>

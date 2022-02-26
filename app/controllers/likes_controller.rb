@@ -7,8 +7,10 @@ class LikesController < ApplicationController
     )
 
     if new_like.save
+      flash[:success] = 'you just liked a post'
       redirect_to "/users/#{@post.user_id}/posts/#{@post.id}"
     else
+      flash.now[:error] = 'you like was not saved'
       render :new
     end
   end
