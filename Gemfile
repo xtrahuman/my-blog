@@ -76,3 +76,6 @@ group :test do
 end
 
 gem 'cssbundling-rails'
+
+# for authentication
+gem 'devise'

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   describe ' Post model testing' do
     user1 = User.new(name: 'tochi', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                  bio: 'dog owner')
+                     bio: 'dog owner')
     post1 = Post.new(user: user1, title: 'my pst', text: 'new post')
     post1.comments_counter = 0
     post1.likes_counter = 0
@@ -34,6 +34,5 @@ RSpec.describe Post, type: :model do
       post1.comments_counter = -1
       expect(post1).to_not be_valid
     end
-
   end
 end

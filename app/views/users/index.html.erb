@@ -1,4 +1,9 @@
 <h1>all users</h1>
+<li class="nav-item">
+<%= link_to "/users/sign_out", method: :delete do %>
+            <h3>sign out</h3>
+<%end%>
+</li>
 <% @users.each do |user| %>
 <div class="row">
   <div class="col-sm-3">

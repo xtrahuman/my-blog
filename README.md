@@ -31,6 +31,8 @@ To get a local copy up and running follow these simple example steps.
 - write `git clone https://github.com/xtrahuman/my-blog.git`.
 - go to the repository folder in your command prompt.
 - run `bundle install`.
+- create your database `rails db:create`
+- Migrate database `rails db:migrate`
 - type `rails s` to start up server
 
 ## Author

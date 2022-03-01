@@ -6,7 +6,7 @@ RSpec.describe Like, type: :model do
                      bio: 'dog owner')
     post1 = Post.new(user: user1, title: 'my pst', text: 'new post')
     like1 = Like.new(user: user1, post: post1)
-    
+
     like1.update_likes_counter
 
     it 'check if likes counter works' do
