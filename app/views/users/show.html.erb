@@ -30,7 +30,7 @@
         Comments: <%= post.comments_counter || 0 %>
         Likes: <%= post.likes_counter || 0 %>
       </div>
-      <%= button_to 'Destroy', "#{@user.id}/posts/#{post.id}", method: :delete, data: { confirm: 'Are you sure?'} %>
+     <%= button_to 'Destroy', "#{@user.id}/posts/#{post.id}", method: :delete if can? :destroy, post %>
     </div>
 
     <% end %>
