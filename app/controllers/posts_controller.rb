@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
   skip_before_action :verify_authenticity_token
-  before_action :current_user, only: [:create, :edit, :update, :destroy]
+  before_action :current_user, only: %i[create edit update destroy]
 
   def index
     @user = User.find(params[:user_id])

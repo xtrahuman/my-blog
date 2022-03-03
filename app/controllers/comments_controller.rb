@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :current_user, only: [:create, :edit, :update, :destroy]
+  before_action :current_user, only: %i[create edit update destroy]
 
   def destroy
     @comment = Comment.find(params[:id])
