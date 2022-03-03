@@ -16,7 +16,12 @@
 <div class="comments">
 <% @post.comments.each do |comment| %>
    <h2><%= comment.user.name%>: <%= comment.text%></h2>
+   <p>checking</p>
+    <%= button_to 'Destroy', "#{@user.id}/posts/#{@post.id}", method: :delete, data: { confirm: 'Are you sure?'} %>
+   <%= button_to "Delete", post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: 'Are you sure?'} %>
 <%end%>
+
+
 <%= render partial: "createcomment", local: { post: @post } %>
 </div>
 

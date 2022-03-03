@@ -22,13 +22,17 @@
   <ul class='posts'>
     <% @posts_user.each do |post| %>
     <div class='post'>
-      <h3>Post # <%= post.id %></h3>
+    <%= link_to "/users/#{@user.id}/posts/#{post.id}", :action => 'go' do %>
+    <h3>Post # <%= post.id %></h3>
+    <%end%>
       <p> Text:<%= post.text %></p>
       <div>
         Comments: <%= post.comments_counter || 0 %>
         Likes: <%= post.likes_counter || 0 %>
       </div>
+      <%= button_to 'Destroy', "#{@user.id}/posts/#{post.id}", method: :delete, data: { confirm: 'Are you sure?'} %>
     </div>
+
     <% end %>
   </ul>
 

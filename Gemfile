@@ -79,3 +79,6 @@ gem 'cssbundling-rails'
 
 # for authentication
 gem 'devise'
+
+# for authorization
+gem 'cancancan'

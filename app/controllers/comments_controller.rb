@@ -1,5 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :current_user, only: [:create]
+  skip_before_action :verify_authenticity_token
+  before_action :current_user, only: [:create, :edit, :update, :destroy]
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to user_post_path(current_user.id, @comment.post_id)
+  end
 
   def create
     @comment = current_user.comments.new(comments_params)

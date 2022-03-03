@@ -8,4 +8,5 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts_user = @user.last_three_posts
   end
+
 end

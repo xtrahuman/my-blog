@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :current_user, only: [:create]
+  skip_before_action :verify_authenticity_token
+  before_action :current_user, only: [:create, :edit, :update, :destroy]
 
   def index
     @user = User.find(params[:user_id])
@@ -16,6 +17,12 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_path(current_user)
+  end
+
   def create
     @post = current_user.posts.new(post_params)
     @post.comments_counter = 0
@@ -25,7 +32,7 @@ class PostsController < ApplicationController
       format.html do
         if @post.save
           flash[:success] = 'Post was sucessfully created'
-          redirect_to "/users/#{current_user.id}/posts/"
+          redirect_to "/users/#{current_user.id}"
         else
           flash.now[:error] = 'post was not created'
           render :new
