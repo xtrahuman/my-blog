@@ -35,6 +35,13 @@ To get a local copy up and running follow these simple example steps.
 - Migrate database `rails db:migrate`
 - type `rails s` to start up server
 
+## Testing with Rspec and Capybara
+
+- test views `bundle exec rspec spec/views`
+- test controllers `bundle exec rspec spec/controllers`
+- test models `bundle exec rspec spec/models`
+- test requests `bundle exec rspec spec/requests`
+
 ## Author
 
 👤 **Okpara Tochukwu**
