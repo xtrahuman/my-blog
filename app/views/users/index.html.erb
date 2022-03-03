@@ -4,6 +4,9 @@
             <h3>sign out</h3>
 <%end%>
 </li>
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
 <% @users.each do |user| %>
 <div class="row">
   <div class="col-sm-3">

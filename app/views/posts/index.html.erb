@@ -1,4 +1,20 @@
 <h1>all posts from a user</h1>
+<div class="row my-4">
+  <div class="col-sm-3">
+    <div class="card-photo">
+    <%= image_tag "cover-photo.jpg", alt: "user", class: "user_image", :size =>'80x80' %>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <div class="card">
+      <div class="card-body place-items-start ">
+        <h5 class="card-title"><%= @user.name %></h5>
+        <p class="card-text text-right">number of posts<span class="mx-2"><%=@user.posts_counter || 0%></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div>
     <% @posts_user.each do |post| %>
       <ul class='posts'>
@@ -6,6 +22,7 @@
           <%= link_to "/users/#{@user.id}/posts/#{post.id}", :action => 'go' do %>
             <h3>Post # <%= post.id %></h3>
           <%end%>
+          <p> Title: <%= post.title %></p>
           <p> Text: <%= post.text %></p>
           <div class='commentslikes'>
             Comments: <%= post.comments_counter || 0%>
