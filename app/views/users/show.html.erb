@@ -18,17 +18,25 @@
 <div>
     Bio:<p><%= @user.bio %>...</p>
   </div>
+  
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
 
   <ul class='posts'>
     <% @posts_user.each do |post| %>
     <div class='post'>
-      <h3>Post # <%= post.id %></h3>
-      <p> Text:<%= post.text %></p>
+    <%= link_to "/users/#{@user.id}/posts/#{post.id}", :action => 'go' do %>
+    <h3>Post # <%= post.id %></h3>
+    <%end%>
+      <p> Text:<%= post.title %></p>
       <div>
         Comments: <%= post.comments_counter || 0 %>
         Likes: <%= post.likes_counter || 0 %>
       </div>
+     <%= button_to 'Destroy', "#{@user.id}/posts/#{post.id}", method: :delete if can? :destroy, post %>
     </div>
+
     <% end %>
   </ul>
 

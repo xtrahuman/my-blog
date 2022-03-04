@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
+  # load_and_authorize_resource
   after_save :update_posts_counter
+  after_destroy :reduce_posts_counter
 
   belongs_to :user
   has_many :comments, dependent: :destroy
@@ -18,5 +20,9 @@ class Post < ApplicationRecord
 
   def update_posts_counter
     user.increment!(:posts_counter)
+  end
+
+  def reduce_posts_counter
+    user.decrement!(:posts_counter)
   end
 end

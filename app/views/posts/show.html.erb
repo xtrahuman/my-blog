@@ -16,12 +16,14 @@
 <div class="comments">
 <% @post.comments.each do |comment| %>
    <h2><%= comment.user.name%>: <%= comment.text%></h2>
+   <%= button_to "Delete", post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: 'Are you sure?'} if can? :destroy, comment %>
 <%end%>
-<%= render partial: "createcomment", local: { post: @post } %>
-</div>
 
 <% flash.each do |type, msg| %>
   <div>
     <%= msg %>
   </div>
 <% end %>
+
+<%= render partial: "createcomment", local: { post: @post } %>
+</div>
